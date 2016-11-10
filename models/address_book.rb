@@ -56,4 +56,9 @@ require "csv"
      # #5
      return nil
    end
+
+   def remove_all_entry
+      entries.clear
+   end
+
  end

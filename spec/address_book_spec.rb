@@ -10,6 +10,20 @@ require_relative '../models/address_book'
      expect(entry.email).to eq expected_email
    end
 
+   describe "#remove_all_entry" do
+     it "removes all entries" do
+       book.import_from_csv("entries.csv")
+       book_size = book.entries.size
+
+       # Check the size of the entries in AddressBook
+       expect(book_size).to eq 5
+
+       book.remove_all_entry
+       book_size = book.entries.size
+       expect(book_size).to eq 0
+     end
+   end
+
    describe "attributes" do
      it "responds to entries" do
        expect(book).to respond_to(:entries)
